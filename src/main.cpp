@@ -26,8 +26,8 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    Auton("Match: ", matchOld),
-    Auton("Skills: ", skills),
+    // Auton("Match: ", matchOld),
+    // Auton("Skills: ", skills),
     Auton("Tune Forward/Backward: ", tuneForwardBackward),
     Auton("Tune Heading: ",tuneHeading),
     Auton("Tune Turn: ", tuneTurn),
@@ -128,10 +128,17 @@ void opcontrol() {
     // } 
 
     // chassis.opcontrol_arcade_standard(ez::SPLIT);
+
+
+    /* Driver Control */
+
     updateDrive();
-    moveIntake();
-    updateRatchet();
-    updateHang();
+    spinIntake();
+
+
+
+    // updateRatchet();
+    // updateHang();
     // updatePistons();
 
 

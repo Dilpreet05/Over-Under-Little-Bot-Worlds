@@ -13,24 +13,24 @@ void tuneSwing();
 void default_constants();
 
 
-void skills();
-void match();
-void matchOld();
+// void skills();
+// void match();
+// void matchOld();
 
-void skillsCycle();
+// void skillsCycle();
 
-void intakeMoveDown();
-void intakeMoveUp();
-void intakeMovementStop();
-void intakeSpinIn();
-void intakeSpinOut();
-void intakeSpinStop();
-void leftWingDown();
-void rightWingDown();
-void wingsDown();
-void leftWingUp();
-void rightWingUp();
-void wingsUp();
+// void intakeMoveDown();
+// void intakeMoveUp();
+// void intakeMovementStop();
+// void intakeSpinIn();
+// void intakeSpinOut();
+// void intakeSpinStop();
+// void leftWingDown();
+// void rightWingDown();
+// void wingsDown();
+// void leftWingUp();
+// void rightWingUp();
+// void wingsUp();
 void hangUp();
 void hangDown();
 void hangStop();
