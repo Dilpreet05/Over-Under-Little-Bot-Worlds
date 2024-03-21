@@ -3,5 +3,5 @@
 
 extern pros::Motor intakeMotor;
 
-void spinIntake();
+void updateIntake();
 void setIntakeBrake();

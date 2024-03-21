@@ -39,57 +39,52 @@ void default_constants() {
 // Subsystem Methods
 // . . .
 
+void intake(){
+  intakeMotor=127;
+}
 
-// void intakeMoveUp(){
-//   intakeLeft=-127;
-//   intakeRight=-127;
-// }
+void outtake(){
+  intakeMotor=-127;
+}
 
-// void intakeMoveDown(){
-//   intakeLeft=127;
-//   intakeRight=127;
-// }
+void stopIntake(){
+  intakeMotor=0;
+}
 
-// void intakeMovementStop(){
-//   intakeLeft.brake();
-//   intakeRight.brake();
-// }
+void grabberDown(){
 
-// void  (){
-//   intakeMotor = -127;
-// }
+}
 
-// void  (){
-//   intakeMotor = 127;
-// }
+void grabberUp(){
 
-// void  (){
-//   intakeMotor.brake();
-// }
+}
+
+void grabberStop(){
+  
+}
 
 void hangUp(){
   hangMotor = 90;
 }
 
 void hangDown(){
-  
+  hangMotor = -90;
 }
 
 void hangStop(){
-
+  hangMotor=0;
+  hangMotor.brake();
 }
 
 void ratchetEngage(){
-  ratchetMotor = -127;
+
 }
 
 void ratchetDisengage(){
-  ratchetMotor = 127;
+
 }
 
-void ratchetStop(){
-  ratchetMotor.brake();
-}
+
 
 // . . .
 // Functions created to tune PID

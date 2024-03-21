@@ -1,6 +1,6 @@
 #include "main.h"
 
-pros::Motor hangMotor(3,MOTOR_GEARSET_36,false);
+pros::Motor hangMotor(20,MOTOR_GEARSET_36,true);
 
 
 void setHangBrake(){

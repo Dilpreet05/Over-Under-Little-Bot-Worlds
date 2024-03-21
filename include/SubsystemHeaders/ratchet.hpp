@@ -1,7 +1,5 @@
 #include "main.h"
 
-extern pros::Motor ratchetMotor;
-extern pros::ADIDigitalIn LimitSwitch;
+extern pros::ADIDigitalOut ratchetPiston;
 
 void updateRatchet();
-void setRatchetBrake();

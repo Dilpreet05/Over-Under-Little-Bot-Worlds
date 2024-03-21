@@ -17,7 +17,6 @@ void initialize() {
   chassis.opcontrol_curve_default_set(0, 4.1); // Defaults for curve. If using tank, only the first parameter is used. (Comment this line out if you have an SD card!)  
   default_constants(); // Set the drive to your own constants from autons.cpp!
   setIntakeBrake();
-  setRatchetBrake();
   setHangBrake();
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
@@ -133,13 +132,9 @@ void opcontrol() {
     /* Driver Control */
 
     updateDrive();
-    spinIntake();
-
-
-
-    // updateRatchet();
-    // updateHang();
-    // updatePistons();
+    updateIntake();
+    updateHang();
+    updatePistons();
 
 
     pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
