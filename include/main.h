@@ -40,6 +40,7 @@
 #include "SubsystemHeaders/piston.hpp"
 #include "SubsystemHeaders/ratchet.hpp"
 #include "SubsystemHeaders/intake.hpp"
+#include "SubsystemHeaders/grabber.hpp"
 /**
  * You should add more #includes here
  */
