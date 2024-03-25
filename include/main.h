@@ -35,12 +35,8 @@
 #define PROS_USE_LITERALS
 
 #include "api.h"
-#include "SubsystemHeaders/drive.hpp"
-#include "SubsystemHeaders/hang.hpp"
-#include "SubsystemHeaders/piston.hpp"
-#include "SubsystemHeaders/ratchet.hpp"
-#include "SubsystemHeaders/intake.hpp"
-#include "SubsystemHeaders/grabber.hpp"
+
+
 /**
  * You should add more #includes here
  */
@@ -50,6 +46,12 @@
 
 // More includes here...
 #include "autons.hpp"
+#include "SubsystemHeaders/drive.hpp"
+#include "SubsystemHeaders/hang.hpp"
+#include "SubsystemHeaders/piston.hpp"
+#include "SubsystemHeaders/ratchet.hpp"
+#include "SubsystemHeaders/intake.hpp"
+#include "SubsystemHeaders/wing.hpp"
 
 /**
  * If you find doing pros::Motor() to be tedious and you'd prefer just to do
