@@ -14,11 +14,12 @@ const int SWING_SPEED = 90;
 // Constants
 ///
 void default_constants() {
-  chassis.pid_heading_constants_set(6, 0.1, 13);
-  chassis.pid_drive_constants_forward_set(7.3,0,18.25);
-  chassis.pid_drive_constants_backward_set(7.4,0,19.25);
+  chassis.pid_heading_constants_set(6.5, 0.1, 17);
+  chassis.pid_drive_constants_forward_set(7.3,0,21);
+  chassis.pid_drive_constants_backward_set(7.4,0,22.75);
   chassis.pid_turn_constants_set(1.8, 0, 7);
-  chassis.pid_swing_constants_set(4, 0, 17.5);
+  chassis.pid_swing_constants_forward_set(4.6,0,22);
+  chassis.pid_swing_constants_backward_set(4,0,19);
 
   chassis.pid_turn_exit_condition_set(300_ms, 3_deg, 500_ms, 7_deg, 750_ms, 750_ms);
   chassis.pid_swing_exit_condition_set(300_ms, 3_deg, 500_ms, 7_deg, 750_ms, 750_ms);
@@ -33,11 +34,24 @@ void default_constants() {
 // Make your own autonomous functions here!
 // . . .
 
+void winPointMatchAuto(){
+
+
+  
+}
 
 
 // . . .
 // Subsystem Methods
 // . . .
+
+void wingDown(){
+  wingPiston.set(1);
+}
+
+void wingUp(){
+  wingPiston.set(0);
+}
 
 void intake(){
   intakeMotor=127;
@@ -51,16 +65,9 @@ void stopIntake(){
   intakeMotor=0;
 }
 
-void grabberDown(){
 
-}
-
-void grabberUp(){
-
-}
-
-void grabberStop(){
-  
+void hangTo(int units){
+  hangMotor.move_absolute(units,127);
 }
 
 void hangUp(){
@@ -76,13 +83,7 @@ void hangStop(){
   hangMotor.brake();
 }
 
-void ratchetEngage(){
 
-}
-
-void ratchetDisengage(){
-
-}
 
 
 

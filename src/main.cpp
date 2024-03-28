@@ -18,6 +18,7 @@ void initialize() {
   default_constants(); // Set the drive to your own constants from autons.cpp!
   setIntakeBrake();
   setHangBrake();
+  hangTo(500);
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
   // chassis.opcontrol_curve_buttons_left_set (pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT); // If using tank, only the left side is used. 
@@ -25,8 +26,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    // Auton("Match: ", matchOld),
-    // Auton("Skills: ", skills),
+    Auton("Win Point Autonomous.\nhi mom", winPointMatchAuto),
     Auton("Tune Forward/Backward: ", tuneForwardBackward),
     Auton("Tune Heading: ",tuneHeading),
     Auton("Tune Turn: ", tuneTurn),
@@ -106,11 +106,12 @@ void opcontrol() {
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_BRAKE);
   chassis.pid_tuner_print_terminal_set(true);
+  // chassis.opcontrol_joystick_practicemode_toggle(true);
   
   while (true) {
     
-    // PID Tuner
-    // After you find values that you're happy with, you'll have to set them in auton.cpp
+    // // PID Tuner
+    // // After you find values that you're happy with, you'll have to set them in auton.cpp
     // if (!pros::competition::is_connected()) { 
     //   // Enable / Disable PID Tuner
     //   //  When enabled: 

@@ -13,21 +13,17 @@ void tuneSwing();
 void default_constants();
 
 
-// void skills();
-// void match();
-// void matchOld();
+void winPointMatchAuto();
 
 // void skillsCycle();
 
-
+void wingUp();
+void wingDown();
 void intake();
 void outtake();
 void stopIntake();
-void grabberUp();
-void grabberDown();
-void grabberStop();
+void hangTo(int units);
 void hangUp();
 void hangDown();
 void hangStop();
-void ratchetEngage();
-void ratchetDisengage();
+
