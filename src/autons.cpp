@@ -6,7 +6,7 @@
 /////
 
 // These are out of 127
-const int DRIVE_SPEED = 110;  
+const int DRIVE_SPEED = 90;  
 const int TURN_SPEED = 90;
 const int SWING_SPEED = 90;
 
@@ -34,13 +34,347 @@ void default_constants() {
 // Make your own autonomous functions here!
 // . . .
 
+/*
+  winPointMatchAuto() psuedo code;
+
+  1. drive forward to the opposite side corner while intaking, this lets us grab the triball that starts under the hang bar.
+     We will also outtake the triball in the direction of the side of the net
+  2. Matchload the alliance color triball from the corner using our wing
+  3. Readjust the robot -> score the alliance color triball into the side of the net as well as score the triball in intake.
+  4. Move to the center of the field and grab the triballs in the neutral zone, and outtake them towards the net
+  5. After Outtakeing all four triballs in the neutral zone, into the front of the net,
+     intake the last triball that is positioned in our alliance zone, and push all 4 triballs 
+     from before into the net as well as the new triball in the intake
+  6. Push around 2-3 times, exact number will be found via testing.
+  6.1. If time permits, the 24"x24" robot is known to shoot triballs into the area on the side of the net
+     Try to score all triballs that are grouped at the side of the net.
+  7. Touch the Alliance color bar in order to get the win point. 
+
+
+*/
+
 void winPointMatchAuto(){
 
 
-  
+  /*Drop the intake*/
+
+  hangTo(500);
+  pros::delay(500);
+  hangTo(-1350);
+  pros::delay(500);
+
+  /* Step 1 */
+
+  stepOne();
+
+  /*****/
+
+  /* Step 2 */
+
+  stepTwo();
+
+  /*****/
+
+  /* Step 3 */
+
+  stepThree();
+
+  /*****/
+
+  /* Step 4 */
+
+  stepFour();
+
+  /*****/
+
+  /* Step 5 */
+
+  stepFive();
+
+  /*****/
+
+  /* Step 6 */
+
+  stepSix();
+
+  /*****/
 }
 
 
+void stepOne(){
+
+  intake();
+  chassis.pid_drive_set(135_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-60_deg,TURN_SPEED);
+  hangTo(0);
+  chassis.pid_wait();
+
+
+  outtake();
+  pros::delay(1000);
+  stopIntake();
+
+
+
+}
+
+void stepTwo(){
+
+  chassis.pid_turn_set(-45_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  wingDown();
+
+  chassis.pid_drive_set(28_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-115_deg,TURN_SPEED/2);
+  chassis.pid_wait();
+
+  wingUp();
+  pros::delay(250);
+
+
+}
+
+void stepThree(){
+
+
+  hangTo(1000);
+
+  chassis.pid_turn_set(-225_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-15_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  // chassis.pid_turn_set(-270_deg,TURN_SPEED);
+  // chassis.pid_wait();
+
+  chassis.pid_swing_set(ez::LEFT_SWING,-270,TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-30_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+}
+
+void stepFour(){
+
+  chassis.pid_drive_set(18_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-180_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(40_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-110_deg,DRIVE_SPEED);
+  chassis.pid_wait();
+
+}
+
+void stepFive(){
+  // First ball
+
+  ballOne();
+
+  /*****/
+
+  // Second ball
+
+  ballTwo();
+  
+  /*****/
+
+  // Third ball 
+
+  ballThree();
+
+  /*****/
+
+  // Fourth ball
+
+  ballFour();
+
+  /*****/
+
+  // Fifth ball
+
+  // ballFive();
+
+  /*****/
+
+  stopIntake();
+
+}
+
+void ballOne(){
+
+  intake();
+
+  chassis.pid_drive_set(60_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+
+  chassis.pid_turn_set(0_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  outtake();
+  pros::delay(500);
+
+  chassis.pid_drive_set(22_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  
+}
+
+void ballTwo(){
+
+  chassis.pid_drive_set(-26_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  stopIntake();
+
+  chassis.pid_turn_set(-90_deg,TURN_SPEED);
+  chassis.pid_wait();
+  
+  intake();
+
+  chassis.pid_drive_set(18_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-18_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  outtake();
+  pros::delay(500);
+  
+  chassis.pid_drive_set(28_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+}
+
+void ballThree(){
+
+
+  chassis.pid_drive_set(-26_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  stopIntake();
+
+  chassis.pid_turn_set(-165_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  intake();
+
+  chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  pros::delay(100);
+
+  chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0,TURN_SPEED);
+  chassis.pid_wait();
+
+  outtake();
+  pros::delay(500);
+
+  chassis.pid_drive_set(20_in,DRIVE_SPEED);
+  chassis.pid_wait();
+}
+
+void ballFour(){
+
+  chassis.pid_drive_set(-46_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  stopIntake();
+
+  chassis.pid_turn_set(-110_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  intake();
+
+  chassis.pid_drive_set(17_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-17_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  
+  outtake();
+  pros::delay(500);
+
+  chassis.pid_drive_set(14_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+
+
+}
+
+void ballFive(){
+
+  chassis.pid_drive_set(-24_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(135_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  intake();
+
+  chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  
+  chassis.pid_turn_set(0_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+
+  
+  outtake();
+  pros::delay(500);
+
+  chassis.pid_drive_set(24_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+}
+
+void stepSix(){
+
+  hangTo(-500);
+
+  chassis.pid_drive_set(-6_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-90_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-95_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-55_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+
+}
 // . . .
 // Subsystem Methods
 // . . .

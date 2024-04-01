@@ -18,7 +18,6 @@ void initialize() {
   default_constants(); // Set the drive to your own constants from autons.cpp!
   setIntakeBrake();
   setHangBrake();
-  hangTo(500);
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
   // chassis.opcontrol_curve_buttons_left_set (pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT); // If using tank, only the left side is used. 
@@ -71,7 +70,7 @@ void competition_initialize() {
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
  * the Field Management System or the VEX Competition Switch in the autonomous
- * mode. Alternatively, this function may be called in initialize or opcontrol
+ * mode. Alternatively, this function may be called in initialize or opcont rol
  * for non-competition testing purposes.
  *
  * If the robot is disabled or communications is lost, the autonomous task
@@ -82,6 +81,7 @@ void autonomous() {
   chassis.pid_targets_reset(); // Resets PID targets to 0
   chassis.drive_imu_reset(); // Reset gyro position to 0
   chassis.drive_sensor_reset(); // Reset drive sensors to 0
+  hangMotor.tare_position();
   chassis.drive_brake_set(MOTOR_BRAKE_HOLD); // Set motors to hold.  This helps autonomous consistency
 
   ez::as::auton_selector.selected_auton_call(); // Calls selected auton from autonomous selector

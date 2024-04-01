@@ -14,6 +14,17 @@ void default_constants();
 
 
 void winPointMatchAuto();
+    void stepOne();
+    void stepTwo();
+    void stepThree();
+    void stepFour();
+    void stepFive();
+        void ballOne();
+        void ballTwo();
+        void ballThree();
+        void ballFour();
+        void ballFive();
+    void stepSix();
 
 // void skillsCycle();
 
