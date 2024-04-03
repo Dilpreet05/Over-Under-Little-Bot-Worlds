@@ -24,7 +24,16 @@ void winPointMatchAuto();
         void ballThree();
         void ballFour();
         void ballFive();
+        void netPush();
     void stepSix();
+
+void eliminationMatchAuto();
+    void eliminationStepOne();
+    void eliminationStepTwo();
+    void eliminationStepThree();
+    void eliminationStepFour();
+
+
 
 // void skillsCycle();
 

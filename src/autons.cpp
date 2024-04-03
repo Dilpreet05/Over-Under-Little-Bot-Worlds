@@ -53,6 +53,8 @@ void default_constants() {
 
 */
 
+/* Win Point Autonomous Function*/
+
 void winPointMatchAuto(){
 
 
@@ -100,7 +102,9 @@ void winPointMatchAuto(){
   /*****/
 }
 
+/*********/
 
+/* Sub Autonomous Functions */
 void stepOne(){
 
   intake();
@@ -130,7 +134,7 @@ void stepTwo(){
   chassis.pid_drive_set(28_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-115_deg,TURN_SPEED/2);
+  chassis.pid_turn_set(-115_deg,TURN_SPEED/3);
   chassis.pid_wait();
 
   wingUp();
@@ -156,7 +160,7 @@ void stepThree(){
   chassis.pid_swing_set(ez::LEFT_SWING,-270,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-30_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-26_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
 }
@@ -210,171 +214,224 @@ void stepFive(){
 
   stopIntake();
 
-}
-
-void ballOne(){
-
-  intake();
-
-  chassis.pid_drive_set(60_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-
-  chassis.pid_turn_set(0_deg,TURN_SPEED);
-  chassis.pid_wait();
-
-  outtake();
-  pros::delay(500);
-
-  chassis.pid_drive_set(22_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
+  // Net push
   
-}
+  // netPush();
 
-void ballTwo(){
-
-  chassis.pid_drive_set(-26_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  stopIntake();
-
-  chassis.pid_turn_set(-90_deg,TURN_SPEED);
-  chassis.pid_wait();
-  
-  intake();
-
-  chassis.pid_drive_set(18_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-18_in,DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(0_deg,TURN_SPEED);
-  chassis.pid_wait();
-
-  outtake();
-  pros::delay(500);
-  
-  chassis.pid_drive_set(28_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-}
-
-void ballThree(){
-
-
-  chassis.pid_drive_set(-26_in,DRIVE_SPEED);
-  chassis.pid_wait();
-
-  stopIntake();
-
-  chassis.pid_turn_set(-165_deg,TURN_SPEED);
-  chassis.pid_wait();
-
-  intake();
-
-  chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  pros::delay(100);
-
-  chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(0,TURN_SPEED);
-  chassis.pid_wait();
-
-  outtake();
-  pros::delay(500);
-
-  chassis.pid_drive_set(20_in,DRIVE_SPEED);
-  chassis.pid_wait();
-}
-
-void ballFour(){
-
-  chassis.pid_drive_set(-46_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  stopIntake();
-
-  chassis.pid_turn_set(-110_deg,TURN_SPEED);
-  chassis.pid_wait();
-
-  intake();
-
-  chassis.pid_drive_set(17_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-17_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(0_deg,TURN_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-  
-  outtake();
-  pros::delay(500);
-
-  chassis.pid_drive_set(14_in,DRIVE_SPEED);
-  chassis.pid_wait();
-
+  /*****/
 
 
 }
 
-void ballFive(){
+    void ballOne(){
 
-  chassis.pid_drive_set(-24_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
+      intake();
 
-  chassis.pid_turn_set(135_deg,TURN_SPEED);
-  chassis.pid_wait();
-
-  intake();
-
-  chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-  
-  chassis.pid_turn_set(0_deg,TURN_SPEED);
-  chassis.pid_wait();
+      chassis.pid_drive_set(60_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
 
 
-  
-  outtake();
-  pros::delay(500);
+      chassis.pid_turn_set(0_deg,TURN_SPEED);
+      chassis.pid_wait();
 
-  chassis.pid_drive_set(24_in,DRIVE_SPEED);
-  chassis.pid_wait();
+      outtake();
+      pros::delay(500);
 
-}
+      chassis.pid_drive_set(22_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+      
+    }
+
+    void ballTwo(){
+
+      chassis.pid_drive_set(-26_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      stopIntake();
+
+      chassis.pid_turn_set(-90_deg,TURN_SPEED);
+      chassis.pid_wait();
+      
+      intake();
+
+      chassis.pid_drive_set(15_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_drive_set(-15_in,DRIVE_SPEED);
+      chassis.pid_wait();
+
+      chassis.pid_turn_set(0_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      outtake();
+      pros::delay(500);
+      
+      chassis.pid_drive_set(28_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+    }
+
+    void ballThree(){
+
+
+      chassis.pid_drive_set(-26_in,DRIVE_SPEED);
+      chassis.pid_wait();
+
+      stopIntake();
+
+      chassis.pid_turn_set(-165_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      intake();
+
+      chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      pros::delay(100);
+
+      chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_turn_set(0,TURN_SPEED);
+      chassis.pid_wait();
+
+      outtake();
+      pros::delay(500);
+
+      chassis.pid_drive_set(20_in,DRIVE_SPEED);
+      chassis.pid_wait();
+    }
+
+    void ballFour(){
+
+      chassis.pid_drive_set(-46_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      stopIntake();
+
+      chassis.pid_turn_set(-110_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      intake();
+
+      chassis.pid_drive_set(15_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_drive_set(-15_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_turn_set(0_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+      
+      outtake();
+      pros::delay(500);
+
+      chassis.pid_drive_set(14_in,DRIVE_SPEED);
+      chassis.pid_wait();
+
+
+
+    }
+
+    void ballFive(){
+
+      chassis.pid_drive_set(-24_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_turn_set(135_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      intake();
+
+      chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+      
+      chassis.pid_turn_set(0_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+
+      
+      outtake();
+      pros::delay(500);
+
+      chassis.pid_drive_set(24_in,DRIVE_SPEED);
+      chassis.pid_wait();
+
+      stopIntake();
+
+    }
+
+    void netPush(){
+
+      chassis.pid_drive_set(-18_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_turn_set(-180_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      wingDown();
+      pros::delay(100);
+
+      chassis.pid_drive_set(-20_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+    }
 
 void stepSix(){
 
   hangTo(-500);
 
-  chassis.pid_drive_set(-6_in,DRIVE_SPEED);
+
+  chassis.pid_drive_set(6_in,DRIVE_SPEED);
   chassis.pid_wait();
+
+  wingUp();
 
   chassis.pid_turn_set(-90_deg,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-95_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-90_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(0_deg,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-55_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-60_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
 
 }
+
+/*********/
+
+
+/*
+  Elims Autonomous Steps!!!
+
+    1. Unload 3 Triballs from the corner by turning in place.
+    2. 
+
+*/
+
+/* ELIMS Autonomous Function*/
+
+void eliminationMatchAuto(){
+
+
+
+
+
+}
+
+
+/*********/
+
 // . . .
 // Subsystem Methods
 // . . .
