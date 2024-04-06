@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "MATCH_WINPOINT",
+    "project_name": "ELIMINATION_AUTON",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -335,7 +335,7 @@
     "upload_options": {
       "description": "LITTLE BOT CODE",
       "icon": "pizza",
-      "slot": 1
+      "slot": 2
     },
     "use_early_access": false
   }

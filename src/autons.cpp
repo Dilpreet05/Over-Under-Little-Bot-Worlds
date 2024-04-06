@@ -108,7 +108,7 @@ void winPointMatchAuto(){
 void stepOne(){
 
   intake();
-  chassis.pid_drive_set(135_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(136_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-60_deg,TURN_SPEED);
@@ -216,7 +216,7 @@ void stepFive(){
 
   // Net push
   
-  // netPush();
+  netPush();
 
   /*****/
 
@@ -375,10 +375,10 @@ void stepFive(){
       chassis.pid_turn_set(-180_deg,TURN_SPEED);
       chassis.pid_wait();
 
-      wingDown();
+      wingHorizontal.set(true);
       pros::delay(100);
 
-      chassis.pid_drive_set(-20_in,DRIVE_SPEED,true);
+      chassis.pid_drive_set(-26_in,DRIVE_SPEED,true);
       chassis.pid_wait();
 
     }
@@ -391,12 +391,12 @@ void stepSix(){
   chassis.pid_drive_set(6_in,DRIVE_SPEED);
   chassis.pid_wait();
 
-  wingUp();
+  wingHorizontal.set(false);
 
   chassis.pid_turn_set(-90_deg,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-90_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-100_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(0_deg,TURN_SPEED);
@@ -414,8 +414,9 @@ void stepSix(){
 /*
   Elims Autonomous Steps!!!
 
-    1. Unload 3 Triballs from the corner by turning in place.
-    2. 
+    1. rush the other side with the preload and the triball that starts under the hang bar, unlaod the corner ball & score the three balls into the side of the net
+    2. go to the center of the field
+    3. score all 5 balls
 
 */
 
@@ -423,14 +424,119 @@ void stepSix(){
 
 void eliminationMatchAuto(){
 
+  hangTo(500);
+  pros::delay(500);
+  hangTo(-1350);
+  pros::delay(750);
 
+
+  eliminationStepOne();
+  eliminationBallTwo();
 
 
 
 }
 
 
+
+void eliminationStepOne(){
+
+  chassis.pid_drive_set(-105,DRIVE_SPEED/2,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-45_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+
+  chassis.pid_drive_set(-13_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  wingHorizontal.set(true);
+
+  chassis.pid_drive_set(-13_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_swing_set(ez::LEFT_SWING,-90_deg,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  wingHorizontal.set(false);
+
+}
+
+void eliminationStepTwo(){
+
+  chassis.pid_drive_set(6_in,DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0,TURN_SPEED);
+  chassis.pid_wait();
+  
+  chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90_deg,TURN_SPEED);
+  chassis.pid_wait();
+
+}
+
+void eliminationStepThree(){
+
+  eliminationBallOne();
+  eliminationBallTwo();
+  eliminationBallThree();
+
+}
+
+void eliminationStepFour(){
+
+}
+
+
+void eliminationBallOne(){
+
+}
+
+void eliminationBallTwo(){
+
+}
+
+void eliminationBallThree(){
+
+}
+
+void eliminationBallFour(){
+
+}
+
+void eliminationBallFive(){
+
+}
+
 /*********/
+
+
+/*
+  SKILLS auto!!!!
+
+  1. unfinished
+
+*/
+
+/* Skills autonomous functions*/
+
+
+
+
+/*********/
+
+
+
+
+
+
 
 // . . .
 // Subsystem Methods
