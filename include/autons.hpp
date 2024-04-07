@@ -28,15 +28,10 @@ void winPointMatchAuto();
     void stepSix();
 
 void eliminationMatchAuto();
-    void eliminationStepOne();
-    void eliminationStepTwo();
-    void eliminationStepThree();
-        void eliminationBallOne();
-        void eliminationBallTwo();
-        void eliminationBallThree();
-        void eliminationBallFour();
-        void eliminationBallFive();
-    void eliminationStepFour();
+    void eliminationStepFive();
+        void eliminationNetPush();
+    void eliminationStepSix();
+    
 
 
 

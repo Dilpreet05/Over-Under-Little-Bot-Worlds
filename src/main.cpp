@@ -25,7 +25,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    Auton("ELIMS Autonomous\n", eliminationMatchAuto),
+    // Auton("ELIMS Autonomous\n", eliminationMatchAuto),
     Auton("Win Point Autonomous.\nhi mom", winPointMatchAuto),
     Auton("Tune Forward/Backward: ", tuneForwardBackward),
     Auton("Tune Heading: ",tuneHeading),

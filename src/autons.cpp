@@ -237,7 +237,7 @@ void stepFive(){
       outtake();
       pros::delay(500);
 
-      chassis.pid_drive_set(22_in,DRIVE_SPEED,true);
+      chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
       chassis.pid_wait();
       
     }
@@ -284,12 +284,12 @@ void stepFive(){
 
       intake();
 
-      chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
+      chassis.pid_drive_set(20_in,DRIVE_SPEED,true);
       chassis.pid_wait();
 
       pros::delay(100);
 
-      chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+      chassis.pid_drive_set(-32_in,DRIVE_SPEED,true);
       chassis.pid_wait();
 
       chassis.pid_turn_set(0,TURN_SPEED);
@@ -396,7 +396,7 @@ void stepSix(){
   chassis.pid_turn_set(-90_deg,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-100_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-105_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(0_deg,TURN_SPEED);
@@ -429,91 +429,86 @@ void eliminationMatchAuto(){
   hangTo(-1350);
   pros::delay(750);
 
-
-  eliminationStepOne();
-  eliminationBallTwo();
+  stepOne();
+  stepTwo();
+  stepThree();
+  stepFour();
+  eliminationStepFive();
+  eliminationStepSix();
+  
 
 
 
 }
 
+void eliminationStepFive(){
+  // First ball
 
+  ballOne();
 
-void eliminationStepOne(){
+  /*****/
 
-  chassis.pid_drive_set(-105,DRIVE_SPEED/2,true);
+  // Second ball
+
+  ballTwo();
+  
+  /*****/
+
+  // Third ball 
+
+  ballThree();
+
+  /*****/
+
+  // Fourth ball
+
+  ballFour();
+
+  /*****/
+
+  // Fifth ball
+
+  ballFive();
+
+  /*****/
+
+  stopIntake();
+
+  // Net push
+  
+  eliminationNetPush();
+
+  /*****/
+}
+
+void eliminationStepSix(){
+
+  chassis.pid_drive_set(48_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-45_deg,TURN_SPEED);
+  chassis.pid_turn_set(-45_deg,DRIVE_SPEED);
   chassis.pid_wait();
 
+}
 
-  chassis.pid_drive_set(-13_in,DRIVE_SPEED);
+void eliminationNetPush(){
+
+  chassis.pid_drive_set(-18_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-180_deg,TURN_SPEED);
   chassis.pid_wait();
 
   wingHorizontal.set(true);
+  pros::delay(100);
 
-  chassis.pid_drive_set(-13_in,DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_swing_set(ez::LEFT_SWING,-90_deg,DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  wingHorizontal.set(false);
-
-}
-
-void eliminationStepTwo(){
-
-  chassis.pid_drive_set(6_in,DRIVE_SPEED);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(0,TURN_SPEED);
-  chassis.pid_wait();
-  
-  chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
-  chassis.pid_wait();
-
-  chassis.pid_turn_set(90_deg,TURN_SPEED);
+  chassis.pid_drive_set(-30_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
 }
 
-void eliminationStepThree(){
-
-  eliminationBallOne();
-  eliminationBallTwo();
-  eliminationBallThree();
-
-}
-
-void eliminationStepFour(){
-
-}
 
 
-void eliminationBallOne(){
-
-}
-
-void eliminationBallTwo(){
-
-}
-
-void eliminationBallThree(){
-
-}
-
-void eliminationBallFour(){
-
-}
-
-void eliminationBallFive(){
-
-}
 
 /*********/
 
