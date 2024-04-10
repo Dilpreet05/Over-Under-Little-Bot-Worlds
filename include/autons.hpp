@@ -31,6 +31,8 @@ void eliminationMatchAuto();
     void eliminationStepFive();
         void eliminationNetPush();
     void eliminationStepSix();
+
+void skills();
     
 
 

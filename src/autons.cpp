@@ -522,7 +522,9 @@ void eliminationNetPush(){
 
 /* Skills autonomous functions*/
 
-
+void skills(){
+  
+}
 
 
 /*********/
