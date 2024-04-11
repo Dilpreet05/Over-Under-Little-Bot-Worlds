@@ -523,8 +523,91 @@ void eliminationNetPush(){
 /* Skills autonomous functions*/
 
 void skills(){
-  
+
+  // hangTo(500);
+  // pros::delay(500);
+  // hangTo(-1350);
+  // pros::delay(750);
+  /*Step 1*/
+  /* Pushes Red Triball into net then positions itself for using wing */
+  /*with speed unload*/
+  chassis.pid_drive_set(-16_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_drive_set(30_in,DRIVE_SPEED/2,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(45_deg,DRIVE_SPEED/2);
+  chassis.pid_wait();
+  chassis.pid_drive_set(10_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg,DRIVE_SPEED/2);
+  chassis.pid_wait();
+  chassis.pid_drive_set(16_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(135_deg,DRIVE_SPEED/2);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-8_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(180_deg,DRIVE_SPEED/2);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-11_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(225_deg,DRIVE_SPEED/2);
+  chassis.pid_wait();
+  chassis.pid_drive_set(6_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  wingDown();
+  /*Step 2*/
+  /*Loop back and forth 10 times moving triballs*/
+  pros::delay(500);
+  for(int i = 0; i < 8; i++){
+    chassis.pid_turn_set(260_deg,DRIVE_SPEED);
+    chassis.pid_wait();
+    chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+    chassis.pid_wait();
+    pros::delay(300);
+  }
+  /*Step 3*/
+  /*Push triballs forward*/
+  chassis.pid_turn_set(260_deg,DRIVE_SPEED/2);
+  wingUp();
+  chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+  chassis.pid_drive_set(-24_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(270_deg,DRIVE_SPEED/2);
+  pros::delay(300);
+  chassis.pid_drive_set(-70_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  /*Step 4*/
+  /*Reposition Bot for next triball loop*/
+  chassis.pid_drive_set(70_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  pros::delay(300);
+  chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+  chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
+  /*Step 5 Loop Triballs again*/
+  wingDown();
+  pros::delay(500);
+  for(int i = 0; i < 8; i++){
+    chassis.pid_turn_set(260_deg,DRIVE_SPEED);
+    chassis.pid_wait();
+    chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+    chassis.pid_wait();
+    pros::delay(300);
+  }
+
+  /*Step 6*/
+  /*Push triballs forward*/
+  chassis.pid_turn_set(260_deg,DRIVE_SPEED/2);
+  wingUp();
+  chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+  chassis.pid_drive_set(-24_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  chassis.pid_turn_set(270_deg,DRIVE_SPEED/2);
+  pros::delay(300);
+  chassis.pid_drive_set(-70_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
 }
+
 
 
 /*********/
