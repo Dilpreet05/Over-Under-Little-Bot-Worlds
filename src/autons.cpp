@@ -126,7 +126,7 @@ void stepOne(){
 
 void stepTwo(){
 
-  chassis.pid_turn_set(-45_deg,TURN_SPEED);
+  chassis.pid_turn_set(-40_deg,TURN_SPEED);
   chassis.pid_wait();
 
   wingDown();
@@ -173,7 +173,7 @@ void stepFour(){
   chassis.pid_turn_set(-180_deg,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(40_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(42_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-110_deg,DRIVE_SPEED);
@@ -216,7 +216,7 @@ void stepFive(){
 
   // Net push
   
-  netPush();
+  // netPush();
 
   /*****/
 
