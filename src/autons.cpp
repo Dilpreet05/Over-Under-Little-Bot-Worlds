@@ -206,17 +206,19 @@ void stepFive(){
 
   /*****/
 
-  // Fifth ball
 
-  // ballFive();
-
-  /*****/
 
   stopIntake();
 
   // Net push
   
   // netPush();
+
+  /*****/
+
+  // Fifth ball
+
+  ballFive();
 
   /*****/
 
@@ -349,21 +351,13 @@ void stepFive(){
       chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
       chassis.pid_wait();
 
-      chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+      chassis.pid_drive_set(-12_in,DRIVE_SPEED,true);
       chassis.pid_wait();
       
-      chassis.pid_turn_set(0_deg,TURN_SPEED);
-      chassis.pid_wait();
-
-
-      
-      outtake();
-      pros::delay(500);
-
-      chassis.pid_drive_set(24_in,DRIVE_SPEED);
-      chassis.pid_wait();
 
       stopIntake();
+
+
 
     }
 
@@ -376,6 +370,7 @@ void stepFive(){
       chassis.pid_wait();
 
       wingHorizontal.set(true);
+      wingDown();
       pros::delay(100);
 
       chassis.pid_drive_set(-26_in,DRIVE_SPEED,true);
@@ -388,21 +383,22 @@ void stepSix(){
   hangTo(-500);
 
 
-  chassis.pid_drive_set(6_in,DRIVE_SPEED);
+  chassis.pid_turn_set(0,TURN_SPEED);
   chassis.pid_wait();
 
-  wingHorizontal.set(false);
-
-  chassis.pid_turn_set(-90_deg,TURN_SPEED);
+  chassis.pid_drive_set(-18_in,DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-105_in,DRIVE_SPEED,true);
+
+  chassis.pid_turn_set(-90,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(0_deg,TURN_SPEED);
+  wingHorizontal.set(true);
+
+  chassis.pid_drive_set(-48_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-60_in,DRIVE_SPEED,true);
+  chassis.pid_turn_set(-130_deg,TURN_SPEED);
   chassis.pid_wait();
 
 
@@ -468,7 +464,7 @@ void eliminationStepFive(){
 
   // Fifth ball
 
-  ballFive();
+  eliminationBallFive();
 
   /*****/
 
@@ -481,6 +477,34 @@ void eliminationStepFive(){
   /*****/
 }
 
+void eliminationBallFive(){
+        chassis.pid_drive_set(-24_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_turn_set(135_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+      intake();
+
+      chassis.pid_drive_set(36_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+
+      chassis.pid_drive_set(-36_in,DRIVE_SPEED,true);
+      chassis.pid_wait();
+      
+      chassis.pid_turn_set(0_deg,TURN_SPEED);
+      chassis.pid_wait();
+
+
+      
+      outtake();
+      pros::delay(500);
+
+      chassis.pid_drive_set(24_in,DRIVE_SPEED);
+      chassis.pid_wait();
+
+      stopIntake();
+}
 void eliminationStepSix(){
 
   chassis.pid_drive_set(48_in,DRIVE_SPEED,true);

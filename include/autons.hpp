@@ -29,6 +29,7 @@ void winPointMatchAuto();
 
 void eliminationMatchAuto();
     void eliminationStepFive();
+        void eliminationBallFive();
         void eliminationNetPush();
     void eliminationStepSix();
 
