@@ -569,26 +569,27 @@ void skills(){
   chassis.pid_wait();
   chassis.pid_turn_set(135_deg,DRIVE_SPEED/2);
   chassis.pid_wait();
-  chassis.pid_drive_set(-8_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-9_in,DRIVE_SPEED,true);
   chassis.pid_wait();
   chassis.pid_turn_set(180_deg,DRIVE_SPEED/2);
   chassis.pid_wait();
-  chassis.pid_drive_set(-11_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-13_in,DRIVE_SPEED,true);
   chassis.pid_wait();
   chassis.pid_turn_set(225_deg,DRIVE_SPEED/2);
   chassis.pid_wait();
-  chassis.pid_drive_set(6_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(5_in,DRIVE_SPEED,true);
   chassis.pid_wait();
   wingDown();
   /*Step 2*/
   /*Loop back and forth 10 times moving triballs*/
   pros::delay(500);
-  for(int i = 0; i < 8; i++){
-    chassis.pid_turn_set(260_deg,DRIVE_SPEED);
+  for(int i = 0; i < 4; i++){
+    chassis.pid_turn_set(250_deg,DRIVE_SPEED/2);
     chassis.pid_wait();
-    chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+    pros::delay(100);
+    chassis.pid_turn_set(225_deg,DRIVE_SPEED/2);
     chassis.pid_wait();
-    pros::delay(300);
+    pros::delay(100);
   }
   /*Step 3*/
   /*Push triballs forward*/
@@ -599,24 +600,29 @@ void skills(){
   chassis.pid_wait();
   chassis.pid_turn_set(270_deg,DRIVE_SPEED/2);
   pros::delay(300);
-  chassis.pid_drive_set(-70_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-70_in,DRIVE_SPEED/2,true);
   chassis.pid_wait();
   /*Step 4*/
   /*Reposition Bot for next triball loop*/
-  chassis.pid_drive_set(70_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(72_in,DRIVE_SPEED/2,true);
   chassis.pid_wait();
   pros::delay(300);
-  chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+  chassis.pid_turn_set(225_deg,DRIVE_SPEED/2);
+  chassis.pid_wait();
+  pros::delay(300);
   chassis.pid_drive_set(24_in,DRIVE_SPEED,true);
+  chassis.pid_wait();
+  pros::delay(300);
   /*Step 5 Loop Triballs again*/
   wingDown();
-  pros::delay(500);
-  for(int i = 0; i < 8; i++){
-    chassis.pid_turn_set(260_deg,DRIVE_SPEED);
+  pros::delay(200);
+  for(int i = 0; i < 4; i++){
+    chassis.pid_turn_set(250_deg,DRIVE_SPEED/2);
     chassis.pid_wait();
-    chassis.pid_turn_set(225_deg,DRIVE_SPEED);
+    pros::delay(100);
+    chassis.pid_turn_set(225_deg,DRIVE_SPEED/2);
     chassis.pid_wait();
-    pros::delay(300);
+    pros::delay(100);
   }
 
   /*Step 6*/
