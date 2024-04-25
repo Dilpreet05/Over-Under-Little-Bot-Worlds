@@ -60,8 +60,8 @@ void winPointMatchAuto(){
 
   /*Drop the intake*/
 
-  hangTo(500);
-  pros::delay(500);
+  hangTo(750);
+  pros::delay(750);
   hangTo(-1350);
   pros::delay(500);
 
@@ -151,7 +151,7 @@ void stepThree(){
   chassis.pid_turn_set(-225_deg,TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-15_in,DRIVE_SPEED,true);
+  chassis.pid_drive_set(-13_in,DRIVE_SPEED,true);
   chassis.pid_wait();
 
   // chassis.pid_turn_set(-270_deg,TURN_SPEED);
@@ -420,10 +420,10 @@ void stepSix(){
 
 void eliminationMatchAuto(){
 
-  hangTo(500);
-  pros::delay(500);
+  hangTo(750);
+  pros::delay(750);  
   hangTo(-1350);
-  pros::delay(750);
+  pros::delay(500);
 
   stepOne();
   stepTwo();
